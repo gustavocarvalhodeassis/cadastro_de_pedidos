@@ -1,25 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
-int main(void)
+char varName[200], varLocale[200], varRequest[200];
+int varValue;
+int selectContent;
+int relatorio(void)
 {
-    int selectContent;
-    printf("---> Selecione <--- \n (1) Cadastro de pedido \n (2) Consulta pedido \n (3) Emitir relatorio \n (4) Sair \n");
-    scanf("%d", &selectContent);
-    if (selectContent == 1)
-    {
-        system("cls");
+    
+}
+int consulta(void)
+{
+    
+}
+int cadastro(void)
+{
+       system("cls");
         printf("---> Cadastro de pedido <--- \n");
-        char varName, varLocale, varRequest;
-        int varValue;
         printf("Nome: ");
         scanf("%s", &varName);
+        fflush(stdin);
         printf("Endereco: ");
         scanf("%s", &varLocale);
+        fflush(stdin);
         printf("Pedido: ");
         scanf("%s", &varRequest);
+        fflush(stdin);
         printf("Valor: ");
         scanf("%d", &varValue);
+        fflush(stdin);
         printf("\n");
         system("cls");
         printf("---> Resumo do pedido <--- \n");
@@ -29,8 +38,26 @@ int main(void)
         printf("\nValor: %d", varValue);
         printf("\n");
         printf("\n--------------------------\n");
+        printf("\nVoltar para o inicio? Digite (1). Sair? Digite(2)");
+        int returnToInitState;
         printf("\n");
-        system("pause");
+        scanf("%d", returnToInitState);
+        if (returnToInitState == 1)
+        {
+            selector();
+            return 0;
+        }
+        
+        
+           
+}
+int selector(void)
+{
+     printf("---> Selecione <--- \n (1) Cadastro de pedido \n (2) Consulta pedido \n (3) Emitir relatorio \n (4) Sair \n");
+    scanf("%d", &selectContent);
+    if (selectContent == 1)
+    {
+        cadastro();
         return(0);
     }
     if (selectContent == 2)
@@ -49,6 +76,12 @@ int main(void)
     {                                                                                                               
         printf("Opção invalida");
     }
-    
+}
+
+
+int main(void)
+{
+    setlocale(LC_ALL, "Portuguese");
+    selector();
     return(0);
 }

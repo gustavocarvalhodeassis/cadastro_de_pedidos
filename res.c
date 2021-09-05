@@ -38,14 +38,15 @@ int main(void){ //INICIO DO MAIN
     int codaux;
     do
     {
-        printf("1 - Cadastrar Pedido\n");
-        printf("2 - Cliente\n");
+        printf("1 - Cadastrar Novo Cliente\n");
+        printf("2 - Consulta Clientes\n");
         printf("3 - Alterar Cliente\n");
         printf("4 - Excluir Cliente\n");
         printf("5 - Cadastrar Pedido\n");
-        printf("6 - Alterar Pedido\n");
-        printf("7 - Excluir Pedido\n");
-        printf("8 - Sair\n");
+        printf("6 - Consulta Pedidos\n");/*added*/
+        printf("7 - Alterar Pedido\n");/*era 6*/
+        printf("8 - Excluir Pedido\n");/*era 7*/
+        printf("9 - Sair\n");/*era 8*/
         printf(" Selecione uma opcao por favor: ");
         scanf("%d", &Opcao);
         getchar();
@@ -120,13 +121,17 @@ int main(void){ //INICIO DO MAIN
         }
         else if (Opcao == 6)
         {
-            printf("Voce selecionou a opcao 6 - Alterar Pedido\n");
+            printf("Voce selecionou a opcao 6 - Consulta Pedido\n");
         }
         else if (Opcao == 7)
         {
-            printf("Voce selecionou a opcao 7 - Excluir Pedido\n");
+            printf("Voce selecionou a opcao 7 - Alterar Pedido\n");
         }
         else if (Opcao == 8)
+        {
+            printf("Voce selecionou a opcao 8 - Excluir Pedido\n");
+        }
+        else if (Opcao == 9)
         {
             printf("Voce selecionou a opcao 8 - Sair\n");
         }
