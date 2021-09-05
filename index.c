@@ -1,87 +1,102 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-char varName[200], varLocale[200], varRequest[200];
-int varValue;
-int selectContent;
-int relatorio(void)
-{
-    
+int i = 0;
+int codigo[100];
+char nome[255][100];
+char endereco[255][100];
+char pedido[255][100];
+double valor[100];
+
+// ---------FUNÇÃO CADASTRAR
+int cadastrar(){
+    printf("\n ---> Cadastrar pedido <---");
+    printf("\n");
+    codigo[i] = i;
+    printf("\n Digite o nome:");
+    scanf("%s", nome[i]);
+    printf("\n Digite o endereco:");
+    scanf("%s", endereco[i]);
+    printf("\n Digite o pedido:");
+    scanf("%s", pedido[i]);
+    printf("\n Digite o valor:");
+    scanf("%d", &valor[i]);
+    i ++;
+    return 0;
 }
-int consulta(void)
-{
-    
+// ---------FUNÇÃO Emitir relatório
+void emitirRelatorio(){
+    for (int j = 0; j < i; ++j)
+    {
+    printf("\n Nome: %s",nome[j]);
+    printf("\n Endereco: %s",endereco[j]);
+    printf("\n Pedido: %s",pedido[j]);
+    printf("\n Valor: %d",valor[j],"\n");
+    printf("\n");
+    }
 }
-int cadastro(void)
-{
-       system("cls");
-        printf("---> Cadastro de pedido <--- \n");
-        printf("Nome: ");
-        scanf("%s", &varName);
-        fflush(stdin);
-        printf("Endereco: ");
-        scanf("%s", &varLocale);
-        fflush(stdin);
-        printf("Pedido: ");
-        scanf("%s", &varRequest);
-        fflush(stdin);
-        printf("Valor: ");
-        scanf("%d", &varValue);
-        fflush(stdin);
-        printf("\n");
+// ---------FUNÇÃO Consultar
+int consultarPedido(int id){
+    system("cls");
+    printf("\n Nome: %s",nome[id]);
+    printf("\n Endereco: %s",endereco[id]);
+    printf("\n Pedido: %s",pedido[id]);
+    printf("\n Valor: %d",valor[id],"\n");
+    
+    return 0;
+}
+
+
+
+int main() {
+    int loop = 1;
+    int id;
+    char option;
+    while(loop == 1){
         system("cls");
-        printf("---> Resumo do pedido <--- \n");
-        printf("\nNome: %s", &varName);
-        printf("\nEndereco: %s", &varLocale);
-        printf("\nPedido: %s", &varRequest);
-        printf("\nValor: %d", varValue);
-        printf("\n");
-        printf("\n--------------------------\n");
-        printf("\nVoltar para o inicio? Digite (1). Sair? Digite(2)");
-        int returnToInitState;
-        printf("\n");
-        scanf("%d", returnToInitState);
-        if (returnToInitState == 1)
-        {
-            selector();
-            return 0;
+        printf(
+                "     ---> selecione <--- \n"
+                "\n"
+                "     1 - Cadastrar Pedido\n"
+                "     2 - Consultar Pedido\n"
+                "     3 - Emitir Relatorio\n"
+                "     4 - Sair \n");
+
+//        ler option
+        scanf("%c", &option);
+
+        switch (option) {
+            case '1':
+
+                cadastrar();
+
+                break;
+            case '2':
+            printf("\n---> Consulta pedido <---");
+            printf("\n");
+                printf("\n Digite o id:");
+                scanf("%d",&id);
+                consultarPedido(id);
+                 printf("\n");
+                system("\n pause");
+                break;
+            case '3':
+                 printf("\n---> Emitir relatorio <---");
+                 printf("\n");
+                 emitirRelatorio();
+                 printf("\n");
+                 system("\n pause");
+                break;
+            case '4':
+                loop = 0;
+                break;
+            default:
+                printf("Comando invalido");
+                break;
         }
-        
-        
-           
-}
-int selector(void)
-{
-     printf("---> Selecione <--- \n (1) Cadastro de pedido \n (2) Consulta pedido \n (3) Emitir relatorio \n (4) Sair \n");
-    scanf("%d", &selectContent);
-    if (selectContent == 1)
-    {
-        cadastro();
-        return(0);
     }
-    if (selectContent == 2)
-    {
-        printf("Consulta pedido \n");
-    }
-    if (selectContent == 3)
-    {
-        printf("Emitir relatório \n");
-    }
-    if (selectContent == 4)
-    {
-        return(0);
-    }
-    else
-    {                                                                                                               
-        printf("Opção invalida");
-    }
-}
 
+    printf("fim!");
 
-int main(void)
-{
-    setlocale(LC_ALL, "Portuguese");
-    selector();
-    return(0);
+    return 0;
 }
