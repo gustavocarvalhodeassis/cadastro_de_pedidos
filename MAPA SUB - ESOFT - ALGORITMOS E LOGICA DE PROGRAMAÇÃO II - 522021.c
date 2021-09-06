@@ -38,10 +38,14 @@ void emitirRelatorio(){
 // ---------FUNÇÃO Consultar
 int consultarPedido(int id){
     system("cls");
+    printf("\n---> Resultado da consulta pedido  <---");
+    printf("\n");
     printf("\n Nome: %s",nome[id]);
     printf("\n Endereco: %s",endereco[id]);
     printf("\n Pedido: %s",pedido[id]);
     printf("\n Valor: %d",valor[id],"\n");
+    printf("\n");
+
     
     return 0;
 }
